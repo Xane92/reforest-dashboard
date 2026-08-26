@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import RelayFeed from './RelayFeed';
+import Acoustic from './Acoustic';
 import { CAM_IP, BG, NODES, EVENTS, audioFrame, dbHistory, mpu, power, solarDay } from './data';
 
 const A = '#34d399', A2 = '#a78bfa', WARN = '#fbbf24', BAD = '#f87171';
@@ -92,15 +93,7 @@ export default function App() {
             </div>
           </Card>
 
-          <Card title="Acoustic" right={`${(48 + Math.sin(t / 9) * 6).toFixed(1)} dB`}>
-            <div style={S.wave}>
-              {audioFrame(t).map((v, i) => (
-                <div key={i} style={{ flex: 1, height: `${v * 100}%`, borderRadius: 2, background: v > 0.72 ? WARN : A, opacity: 0.3 + v * 0.7 }} />
-              ))}
-            </div>
-            <Spark data={dbHistory(t / 8)} />
-            <div style={S.axis}><span>-60s</span><span>NOW</span></div>
-          </Card>
+          <Acoustic />
 
           <Card title="IMU · MPU6050" right={`${m.temp.toFixed(1)}°C`}>
             <div style={S.tiltBox}>

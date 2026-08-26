@@ -15,6 +15,7 @@ export default function RelayFeed({ node = 'N-01', style }) {
       ws.binaryType = 'blob';
       ws.onopen = () => setState('live');
       ws.onmessage = (e) => {
+        if (typeof e.data === 'string') return;
         const url = URL.createObjectURL(e.data);
         if (urlRef.current) URL.revokeObjectURL(urlRef.current);
         urlRef.current = url;
