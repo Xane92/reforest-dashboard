@@ -244,7 +244,7 @@ const S = {
   leaf: { color: A, fontSize: 14 },
   sectionTitle: { fontSize: 17, fontWeight: 600, letterSpacing: '-.01em' },
   rule: { flex: 1, height: 1, background: 'linear-gradient(90deg, rgba(255,255,255,.14), transparent)' },
-  grid: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 },
+  grid: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14, alignItems: 'start' },
   card: { ...glass, borderRadius: 20, padding: 17 },
   cardHead: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 14 },
   cardTitle: { fontSize: 14.5, fontWeight: 600 },
